@@ -32,7 +32,7 @@
 필드에 직접 접근하고 있는데 필드에 대한 결합이 이상해지면<br>
 **그 필드에 대한 get/set 메소드를 만들고 항상 이 메소드를 사용하여 필드에 접근하라.**
 
-``` java
+```java
 private int _low, _high;
 boolean includes(int arg) {
     return arg >= _low && arg <= _high;
@@ -40,7 +40,7 @@ boolean includes(int arg) {
 ```
 <center>![](arrow_down.jpg)</center>
 
-``` java
+```java
 private int _low, _high;
 boolean includes(int arg) {
     return arg >= getLow() && arg <= getHigh();
@@ -65,14 +65,14 @@ int getHigh() {return _high;}
 
 <center>![](replace_data_value_with_object.jpg)</center>
 
-``` java
+```java
 class Order {
     String customer;
 }
 ```
 <center>![](arrow_down.jpg)</center>
 
-``` java
+```java
 class Customer {
 	String name;
 	public Customer(String name) {
