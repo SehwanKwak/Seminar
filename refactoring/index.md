@@ -120,10 +120,11 @@ class Order {
 작고, 불변성이고, 관리하기가 어려운 참조객체(reference Object)가 있는 경우,<br>
 **그것을 값 객체(value Object)로 바꾸어라.**
 <center>![](change_reference_to_value.jpg)</center>
+```
+```
 <br>
 <br>
 <br>
-###
 
 ### Replace Array with Object
 배열의 특정 요소가 다른 뜻을 가지고 있다면,<br>
