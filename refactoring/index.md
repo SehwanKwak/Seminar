@@ -20,13 +20,6 @@
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 ### Self Encapsulate Field
 필드에 직접 접근하고 있는데 필드에 대한 결합이 이상해지면<br>
@@ -48,13 +41,6 @@ boolean includes(int arg) {
 int getLow() {return _low;}
 int getHigh() {return _high;}
 ```
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 <br>
@@ -89,20 +75,13 @@ class Order {
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 ### Change Value to Reference
 동일한 인스턴스를 여러 개 가지고 있는 클래스가 있고 여러 개의 동일한 인스턴스를 하나의 객체로 바꾸고 싶으면,<br>
 **그 객체를 참조 객체로 바꾸어라.**
 <center>![](change_value_to_reference.jpg)</center>
 
-``` java
+```java
 class Customer {
 	String name;
 	public Customer(String name) {
@@ -118,7 +97,7 @@ class Order {
 ```
 <center>![](arrow_down.jpg)</center>
 
-``` java
+```java
 class Customer {
 	private static Dictionary instances = new Hashtable();
 	String name;
@@ -136,14 +115,6 @@ class Order {
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
 
 ### Change Reference to Value
 작고, 불변성이고, 관리하기가 어려운 참조객체(reference Object)가 있는 경우,<br>
@@ -152,37 +123,23 @@ class Order {
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 ### Replace Array with Object
 배열의 특정 요소가 다른 뜻을 가지고 있다면,<br>
 **배열을 각각의 요소에 대한 필드를 가지는 객체로 바꿔라.**
 
-``` java
+```java
 String[] row = new String[3];
     row [0] = "Liverpool";
     row [1] = "15";
 ```
 <center>![](arrow_down.jpg)</center>
 
-``` java
+```java
 Performance row = new Performance();
     row.setName("Liverpool");
     row.setWins("15");
 ```
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 <br>
@@ -194,7 +151,7 @@ GUI 컨트롤에서만 사용 가능한 도메인(domain) 데이터가 있고, �
 ![](a_simple_gui_window.jpg)
 <center>![](duplicate_observed_data.jpg)</center>
 
-``` java
+```java
 class IntervalWindow {
 	TextField startField;
 	TextField endField;
@@ -209,7 +166,7 @@ class IntervalWindow {
 ```
 <center>![](arrow_down.jpg)</center>
 
-``` java
+```java
 interface Observer {
 	void update();
 }
@@ -261,21 +218,13 @@ class Interval extends Observable {
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
 
 ### Change Unidirectional Association to Bidirectional
 각각 서로의 기능을 필요로 하는 클래스가 있는데 링크가 한쪽 방향으로만 되어 있는 경우,<br>
 **반대 방향으로 포인터를 추가하고, 수정자(modifier)가 양쪽 세트(set)를 모두 업데이트 하게 변경하라.**
 <center>![](change_unidirectional_association_to_bidirectional.jpg)</center>
 
-``` java
+```java
 class Customer {
 	String name;
 }
@@ -288,7 +237,7 @@ class Order {
 ```
 <center>![](arrow_down.jpg)</center>
 
-``` java
+```java
 class Customer {
 	String name;
 
@@ -307,13 +256,6 @@ class Order {
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 ### Change Bidirectional Association to Unidirectional
 서로 링크를 가지는 두 개의 클래스에서 한쪽이 다른 한쪽을 더 이상 필요로 하지 않을 때는,<br>
@@ -322,26 +264,19 @@ class Order {
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 ### Replace Magic Number with Symbolic Constant
 특별한 의미를 가지는 숫자 리터럴이 있으면,<br>
 **상수를 만들고, 의미를 잘 나타내도록 이름을 지은다음, 숫자를 상수로 바꾸어라.**
 
-``` java
+```java
 double potentialEnergy(double mass, double height) {
     return mass * 9.91 * height;
 }
 ```
 <center>![](arrow_down.jpg)</center>
 
-``` java
+```java
 double potentialEnergy(double mass, double height) {
     return mass * GRAVITATION_CONSTNAT * height;
 }
@@ -350,35 +285,21 @@ static final double GRAVITATIONAL_CONSTANT = 9.81;
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 ### Encapsulate Field
 public 필드가 있는 경우,<br>
 **그 필드를 private으로 만들고, 접근자를 제공하라.**
 
-``` java
+```java
 public String _name;
 ```
 <center>![](arrow_down.jpg)</center>
 
-``` java
+```java
 private String _name;
 public String getName() {return _name;}
 public void setName(String arg) { _name = arg;}
 ```
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 <br>
@@ -388,7 +309,7 @@ public void setName(String arg) { _name = arg;}
 **그 메소드가 읽기전용 뷰(read-only view)를 리턴하도록 만들고, add/remove 메소드를 제공하라.**
 <center>![](encapsulate_collection.jpg)</center>
 
-``` java
+```java
 class Person {
 	private Set courses;
 	public Set getCourses() {
@@ -401,7 +322,7 @@ class Person {
 ```
 <center>![](arrow_down.jpg)</center>
 
-``` java
+```java
 class Person {
 	private Set courses;
 	public Set getCourses() {
@@ -416,24 +337,10 @@ class Person {
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 ### Replace Record with Data Class
 전통적인 프로그래밍 환경에서의 레코드 구조에 대한 인터페이스가 필요한 경우,<br>
 **그 레코드를 위한 데이터 객체를 만들어라.**
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 <br>
@@ -443,7 +350,7 @@ class Person {
 **숫자를 클래스로 바꾸어라.**
 <center>![](replace_type_code_with_class.jpg)</center>
 
-``` java
+```java
 class Person {
 	public static final int O = 0;
 	public static final int A = 1;
@@ -458,7 +365,7 @@ class Person {
 ```
 <center>![](arrow_down.jpg)</center>
 
-``` java
+```java
 class BloodGroup {
 	public static final BloodGroup O = new BloodGroup(0);
 	public static final BloodGroup A = new BloodGroup(1);
@@ -481,20 +388,13 @@ class Person {
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 ### Replace Type Code with Subclasses
 클래스의 동작에 영향을 미치는 변경 불가능한 타입 코드가 있다면,<br>
 **타입 코드를 서브클래스로 바꾸어라.**
 <center>![](replace_type_code_with_subclasses.jpg)</center>
 
-``` java
+```java
 class Employee {
 	static final int ENGINEER = 0;
 	static final int SALESMAN = 1;
@@ -504,7 +404,7 @@ class Employee {
 
 <center>![](arrow_down.jpg)</center>
 
-``` java
+```java
 abstract class Employee {
 }
 class Engineer extends Employee {
@@ -516,20 +416,13 @@ class Salesman extends Employee {
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 ### Replace Type code with State/Strategy
 클래스의 동작에 영향을 미치는 타입 코드가 있지만 서브클래싱을 할 수 없을 때는,<br>
 **타입 코드를 스테이트(State) 객체로 바꾸어라.**
 <center>![](replace_type_code_with_state,strategy.jpg)</center>
 
-``` java
+```java
 class Employee {
 	static final int ENGINEER = 0;
 	static final int SALESMAN = 1;
@@ -539,7 +432,7 @@ class Employee {
 <center>![](arrow_down.jpg)</center>
 
 
-``` java
+```java
 class Employee {
 	EmployeeType employeeType;
 }
@@ -554,19 +447,12 @@ class Salesman extends EmployeeType {
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 ### Replace Subclass with Fields
 상수 데이터를 리턴하면서 메소드만 다른 서브클래스가 있으면,<br>
 **그 메소드를 수퍼클래스의 필드로 바꾸고 서브클래스를 제거하라.**
 
-``` java
+```java
 abstract class Person {
 	abstract char getCode();
 }
@@ -586,7 +472,7 @@ class Female extends Person {
 <center>![](arrow_down.jpg)</center>
 
 
-``` java
+```java
 class Person {
 	char code;
 	private Person(char code) {
@@ -607,13 +493,6 @@ class Person {
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 ## 조건문의 단순화 (Simplifying Conditional Expressions)
 * **Decompose Conditional** : 조건문을 조각으로 분해할 때
@@ -627,37 +506,23 @@ class Person {
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 ### Decompose Conditional
 복잡한 조건문(if-then-else)이 있는 경우,<br>
 **조건, then 부분, 그리고 else 부분에서 메소드를 추출하라.**
 
-``` java
+```java
 if (data.before( SUMMER_START ) || data.after(SUMMER_END) )
     charge = quantity * _winterRate + _winterServeceCharge;
 else charge = quantity * _summerRate;
 ```
 <center>![](arrow_down.jpg)</center>
 
-``` java
+```java
 if (notSummer(date))
     charge = winterCharge(quantity);
 else charge = summerCharge(quatity);
 ```
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 <br>
@@ -666,7 +531,7 @@ else charge = summerCharge(quatity);
 같은 결과를 초래하는 일련의 조건 테스트가 있는 경우,<br>
 **그것을 하나의 조건 식으로 결합하여 뽑아내라.**
 
-``` java
+```java
 double disabilityAmount() {
     if (_seniority < 2) return 0;
     if ( _monthsDisabled > 12) return 0;
@@ -675,18 +540,11 @@ double disabilityAmount() {
 ```
 <center>![](arrow_down.jpg)</center>
 
-``` java
+```java
 double disabilityAmount() {
     if (isNotEligableForDisability()) return 0;
     // compute the disability amount;
 ```
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 <br>
@@ -695,7 +553,7 @@ double disabilityAmount() {
 동일한 코드 조각이 조건문의 모든 분기 안에 있는 경우,<br>
 **동일한 코드를 조건문 밖으로 옮겨라.**
 
-``` java
+```java
 if (isSpecialDeal()) {
     total = price * 0.95;
     send();
@@ -707,20 +565,13 @@ else {
 ```
 <center>![](arrow_down.jpg)</center>
 
-``` java
+```java
 if (isSpecialDeal())
     total = price * 0.95
 else
     total = price * 0.98;
 send();
 ```
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 <br>
@@ -731,19 +582,12 @@ send();
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 ### Replace Nested Conditional with Guard Clauses
 메소드가 정상적인 실행 경로를 불명확하게 하는 조건 동작을 가지고 있는 경우,<br>
 **모든 특별한 경우에 대해서 보호절(guard clause)을 사용하라.**
 
-``` java
+```java
 double getPayAmount() {
     double result;
     if ( _isDead) result = deadAmount();
@@ -759,7 +603,7 @@ double getPayAmount() {
 ```
 <center>![](arrow_down.jpg)</center>
 
-``` java
+```java
 double getPayAmount() {
     if (_isDead) return deadAmount();
     if (_isSeparated) return separatedAmount();
@@ -770,19 +614,12 @@ double getPayAmount() {
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 ### Replace Conditional with Polymorphism
 객체의 타입에 따라 다른 동작을 선택하는 조건문을 가지고 있는 경우,<br>
 **조건문의 각 부분을 서브클래스에 있는 오버라이딩 메소드로 옮겨라. 그리고 원래 메소드를 abstract로 만들어라.**
 
-``` java
+```java
 double getSpeed() {
     switch (_type) {
         case EUROPEAN:
@@ -797,7 +634,7 @@ double getSpeed() {
 ```
 <center>![](arrow_down.jpg)</center>
 
-``` java
+```java
 abstract class Bird {
 	abstract double getSpeed();
 }
@@ -821,25 +658,18 @@ class NorwegianBlue extends Bird {
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 ### Introduce Null Object
 null 체크를 반복적으로 하고 있다면,<br>
 **null 값을 null 객체로 대체하라.**
 
-``` java
+```java
 if (customer == null) plan = BillingPlan.basic();
 else plan = customer.getPlan();
 ```
 <center>![](arrow_down.jpg)</center>
 
-``` java
+```java
 class Customer {
 	BillingPlan getPlan()
 }
@@ -853,19 +683,12 @@ class NullCustomer extends Customer() {
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 ### Introduce Assertion
 코드의 한 부분이 프로그램의 상태에 대하여 어떤 것을 가정하고 있으면,<br>
 **assertion을 써서 가정을 명시되게(explicit) 만들어라.**
 
-``` java
+```java
 double getExpenseLimit() {
     //should have eigher expense limit or a primary project
     return (_expenseLimit != NULL_EXPENSE)?
@@ -875,7 +698,7 @@ double getExpenseLimit() {
 ```
 <center>![](arrow_down.jpg)</center>
 
-``` java
+```java
 double getExpenseLimit() {
     Assert.isTrue(_expenseLimit != NULL_EXPENSE || _primaryProject != null);
     return (_expenseLimit != NULL_EXPENSE)?
@@ -886,13 +709,6 @@ double getExpenseLimit() {
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
-## Reference
+## References
 * 리팩토링 - 마틴 파울러, 대청
