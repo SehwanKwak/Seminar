@@ -4,7 +4,7 @@
 * **Self Encapsulate Field** : 접근자를 사용해야 할 때
 * **Replace Data Value with Object** : 멍청한 데이터를 똑똑한 객체로 바꿀 때
 * **Change Value to Reference** : 객체가 프로그램의 다른 많은 부분에서도 사용될 필요가 있는 인스턴스라는 것을 알게 될 때<br>
-  <-> **Change Reference to Value**
+*  <-> **Change Reference to Value**
 * **Replace Array with Object** : 데이터 구조로 사용되는 배열을 보게 될 때
 * **Duplicate Observed Data** : GUI에서 비즈니스 로직 처리 분리할 때
 * **Change Unidirectional Association to Bidirectional** : 단방향 링크에 새로운 양방향 기능을 지원하기 위해
@@ -15,7 +15,7 @@
 * **Replace Record with Data Class** : 전체 레코드가 모두 드러나 있을 때
 * **Replace Type Code with Class** : 코드가 정보를 위한 것이고 클래스의 동작을 바꾸지 않을 때
 * **Replace Type Code with Subclasses** : 타입 코드에 의해 클래스의 동작이 영향을 받을 때<br>
-  <-> **Replace Subclass with Fields**
+*  <-> **Replace Subclass with Fields**
 * **Replace Type Code with State/Strategy** : Replace Type Code with Subclasse 사용 할 수 없을 때 (보다 융통성이 필요할 때)
 <br>
 <br>
