@@ -263,6 +263,8 @@ class Order {
 서로 링크를 가지는 두 개의 클래스에서 한쪽이 다른 한쪽을 더 이상 필요로 하지 않을 때는,<br>
 **불필요한 링크를 제거하라.**
 <center>![](change_bidirectional_association_to_unidirectional.jpg)</center>
+
+***
 <br>
 <br>
 <br>
@@ -660,6 +662,8 @@ class NorwegianBlue extends Bird {
 }
 ```
 <center>![](replace_conditional_with_polymorphism.jpg)</center>
+
+***
 <br>
 <br>
 <br>
