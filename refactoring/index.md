@@ -265,7 +265,9 @@ class Order {
 <br>
 <br>
 
+
 ### Replace Magic Number with Symbolic Constant
+
 특별한 의미를 가지는 숫자 리터럴이 있으면,<br>
 **상수를 만들고, 의미를 잘 나타내도록 이름을 지은다음, 숫자를 상수로 바꾸어라.**
 
@@ -274,6 +276,7 @@ double potentialEnergy(double mass, double height) {
     return mass * 9.91 * height;
 }
 ```
+
 <center>![](arrow_down.jpg)</center>
 
 ```java
@@ -659,7 +662,9 @@ class NorwegianBlue extends Bird {
 <br>
 <br>
 
+
 ### Introduce Null Object
+
 null 체크를 반복적으로 하고 있다면,<br>
 **null 값을 null 객체로 대체하라.**
 
@@ -667,6 +672,7 @@ null 체크를 반복적으로 하고 있다면,<br>
 if (customer == null) plan = BillingPlan.basic();
 else plan = customer.getPlan();
 ```
+
 <center>![](arrow_down.jpg)</center>
 
 ```java
