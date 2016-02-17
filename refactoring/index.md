@@ -123,7 +123,7 @@ class Order {
 <br>
 <br>
 <br>
-
+<p>
 ### Replace Array with Object
 배열의 특정 요소가 다른 뜻을 가지고 있다면,<br>
 **배열을 각각의 요소에 대한 필드를 가지는 객체로 바꿔라.**
