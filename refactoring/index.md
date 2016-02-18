@@ -1,4 +1,4 @@
-# 리팩토링 (8~9장)
+# 리팩토링 (8~10장)
 ## 데이터 구성 (Organizing Data)
 
 * **Self Encapsulate Field** : 접근자를 사용해야 할 때
@@ -500,6 +500,13 @@ class Person {
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## 조건문의 단순화 (Simplifying Conditional Expressions)
 * **Decompose Conditional** : 조건문을 조각으로 분해할 때
@@ -718,6 +725,162 @@ double getExpenseLimit() {
            _primaryProject.getMemberExpenseLimit();
 }
 ```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## 메소드 호출의 단순화 (Making Method Calls Simpler)
+* Rename Method
+* Add Parameter <-> Remove Parameter
+* Separate Query from Modifier
+* Parameterize Method <-> Replace Parameter with Explicit Method
+* Preserve Whole Object* Replace Parameter with Method
+* Introduce Parameter Object
+* Remove Setting Method
+* Hide Method
+* Replace Constructor with Factory Method
+* Encapsulate Downcast
+* Replace Error Code with Exception <-> Replace Exception with Test
+
+<br>
+<br>
+<br>
+
+### Rename Method메소드의 이름이 그 목적을 드러내지 못하고 있다면</span><br>**메소드의 이름을 바꿔라.**
+<br>
+<br>
+<br>
+<center>![](rename_method.jpg)</center>***<br>
+<br>
+<br>
+
+### Add Parameter어떤 메소드가 그 메소드를 호출하는 부분에서 더 많은 정보를 필요로 한다면,<br>
+(A method needs more information from its caller.)<br>**이 정보를 넘길 수 있는 객체에 대한 파라미터를 추가하라.**<br>
+<br>
+<br><center>![](add_parameter.jpg)</center>
+***<br>
+<br>
+<br>
+### Remove Parameter파라미터가 메소드 몸체에서 더 이상 사용되지 않는다면<br>**그 파라미터를 제거하라.**<br>
+<br>
+<br><center>![](remove_parameter.jpg)</center>
+***<br>
+<br>
+<br>
+### Separate Query from Modifier값을 리턴할 뿐만 아니라 객체의 상태도 변경하는 메소드를 가지고 있는 경우<br>**두개의 메소드를 만들어서 하나는 값을 리턴하는 역할을 하고 하나는 객체의 상태를 변경하는 역할을 하게 하라.**<br>
+<br>
+<br><center>![](separate_query_from_modifier.jpg)</center>
+***<br>
+<br>
+<br>
+### Parameterize Method몇몇 메소드가 메소드 몸체에 다른 값을 포함하고 있는 것을 제외하고는 비슷한 일을 하고 있다면<br>**다른 값을 파라미터로 넘겨 받는 하나의 메소드를 만들어라.**<br>
+<br>
+<br><center>![](parameterize_method.jpg)</center>
+***<br>
+<br>
+<br>
+### Replace Parameter with Explicit Method파라미터의 값에 따라서 다른 코드를 실행하는 메소드가 있다면<br>**각각의 파라미터 값에 대한 별도의 메소드를 만들어라.**<br>
+<br>
+<br>
+```javavoid setValue (String name, int value) {    if (name.equals("height"))            _height = value;    if (name.equals("width"))            _width = value;    Assert.shouldNeverReachHere();}
+```
+<center>![](arrow_down.jpg)</center>
+
+```javavoid setHeight (int arg) {    _height = arg;}void setWidth (int arg) {    _width = arg;}
+```<br>
+<br>
+<br>
+### Preserve Whole Object어떤 객체에서 여러 개의 값을 얻은 다음 메소드를 호출하면서 파라미터로 넘기고 있다면<br>**대신 그 객체를 파라미터로 넘겨라.**<br>
+<br>
+<br>
+```javaint low = daysTempRange().getLow();int high = daysTempRange().getHigh();withinPlan = plan.withinRange(low, high);```
+<center>![](arrow_down.jpg)</center>```javawithinPlan = plan.withinRange(daysTempRange());```
+<br>
+<br>
+<br>
+### Replace Parameter with Method객체가 메소드를 호출한 다음, 결과를 다른 메소드에 대한 파라미터로 넘기고 있다. 수신자 또한 이 메소드를 호출할 수 있다면<br>**그 파라미터를 제거하고 수신자가 그 메소드를 호출하도록 하라.**<br>
+<br>
+<br>
+```javaint basePrice = _quantity * _itemPrice; discountLevel = getDiscountLevel (); double finalPrice = discountedPrice (basePrice, discountLevel); ```<center>![](arrow_down.jpg)</center>
+
+```javaint basePrice = _quantity * _itemPrice; double finalPrice = discountedPrice (basePrice); ```
+<br>
+<br>
+<br>
+### Introduce Parameter Object자연스럽게 몰려다니는 파라미터 그룹을 가지고 있다면**그것들을 객체로 바꾸어라.**<br>
+<br>
+<br>
+<center>![](introduce_parameter_object.jpg)</center>
+***<br>
+<br>
+<br>
+### Remove Setting Method어떤 필드가 객체 생성시에 값이 정해지고 그 이후에는 변경되지 않아야 한다면**그 필드 값을 설정하는 모든 메소드를 제거하라.**<br>
+<br>
+<br>
+<center>![](remove_setting_method.jpg)</center>
+***<br>
+<br>
+<br>
+
+### Hide Method메소드가 다른 클래스에서 사용되지 않는다면**그 메소드를 private으로 만들어라.**<br>
+<br>
+<br>
+<center>![](hide_method.jpg)</center>
+***<br>
+<br>
+<br>
+### Replace Constructor with Factory Method객체를 생성할 때 단순히 생성하는 것 이외에 다른 작업도 하고 있다면**생성자를 팩토리 메소드로 대체하라.**<br>
+<br>
+<br>
+```javaEmplyee (int type) {    _type = type;}
+```<center>![](arrow_down.jpg)</center>
+
+```javastatic Emplyee create (int type) {    return new Emplyee (type);}```
+<br>
+<br>
+<br>
+### Encapsulate Downcast메소드가 그 호출부에서 다운캐스트 될 필요가 있는 객체를 리턴하고 있다면**다운캐스트 하는 것을 메소드 안으로 옮겨라.**<br>
+<br>
+<br>
+```javaObject lastReading () {    return readings.lastElement ();}
+```<center>![](arrow_down.jpg)</center>
+
+```javaReading lastReading () {    return (Reading) readings.lastElement ();}
+```<br>
+<br>
+<br>
+### Replace Error Code with Exception메소드가 에러를 나타내는 특별한 코드를 가지고 있다면**대신 예외를 던져라.**
+<br>
+<br>
+<br>
+
+```javaint withdraw(int amount) {	if (amount > _balance)		return –1;	else {		_balance -= amount;		return 0;	}}
+```<center>![](arrow_down.jpg)</center>```javavoid withdraw(int amount) throws BalanceException {	if (amount > balance) throw new BalanceException();	_balance -= amount;}```
+<br>
+<br>
+<br>
+### Replace Exception with Test호출부에서 먼저 검사할 수 있는 조건에 대해 예외를 던지고 있다면**호출부가 먼저 검사하도록 바꿔라.**<br>
+<br>
+<br>
+```javadouble getValueForPeriod(int periodNumber) {	try {		return _values[periodNumber];	} catch(ArrayIndexOutOfBoundsException e) {		return 0;	}}
+```<center>![](arrow_down.jpg)</center>
+
+```javadouble getValueForPeriod(int periodNumber) {	if (periodNumber >= _values.length) return 0;	return _values[periodNumber];}```
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
