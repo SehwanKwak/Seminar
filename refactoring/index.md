@@ -820,7 +820,7 @@ double getExpenseLimit() {
 <br>
 <br>
 <br>
-### Introduce Parameter Object자연스럽게 몰려다니는 파라미터 그룹을 가지고 있다면**그것들을 객체로 바꾸어라.**<br>
+### Introduce Parameter Object자연스럽게 몰려다니는 파라미터 그룹을 가지고 있다면<br>**그것들을 객체로 바꾸어라.**<br>
 <br>
 <br>
 <center>![](introduce_parameter_object.jpg)</center>
@@ -828,7 +828,7 @@ double getExpenseLimit() {
 ***<br>
 <br>
 <br>
-### Remove Setting Method어떤 필드가 객체 생성시에 값이 정해지고 그 이후에는 변경되지 않아야 한다면**그 필드 값을 설정하는 모든 메소드를 제거하라.**<br>
+### Remove Setting Method어떤 필드가 객체 생성시에 값이 정해지고 그 이후에는 변경되지 않아야 한다면<br>**그 필드 값을 설정하는 모든 메소드를 제거하라.**<br>
 <br>
 <br>
 <center>![](remove_setting_method.jpg)</center>
@@ -837,7 +837,7 @@ double getExpenseLimit() {
 <br>
 <br>
 
-### Hide Method메소드가 다른 클래스에서 사용되지 않는다면**그 메소드를 private으로 만들어라.**<br>
+### Hide Method메소드가 다른 클래스에서 사용되지 않는다면<br>**그 메소드를 private으로 만들어라.**<br>
 <br>
 <br>
 <center>![](hide_method.jpg)</center>
@@ -845,7 +845,7 @@ double getExpenseLimit() {
 ***<br>
 <br>
 <br>
-### Replace Constructor with Factory Method객체를 생성할 때 단순히 생성하는 것 이외에 다른 작업도 하고 있다면**생성자를 팩토리 메소드로 대체하라.**<br>
+### Replace Constructor with Factory Method객체를 생성할 때 단순히 생성하는 것 이외에 다른 작업도 하고 있다면<br>**생성자를 팩토리 메소드로 대체하라.**<br>
 <br>
 <br>
 ```javaEmplyee (int type) {    _type = type;}
@@ -855,7 +855,7 @@ double getExpenseLimit() {
 <br>
 <br>
 <br>
-### Encapsulate Downcast메소드가 그 호출부에서 다운캐스트 될 필요가 있는 객체를 리턴하고 있다면**다운캐스트 하는 것을 메소드 안으로 옮겨라.**<br>
+### Encapsulate Downcast메소드가 그 호출부에서 다운캐스트 될 필요가 있는 객체를 리턴하고 있다면<br>**다운캐스트 하는 것을 메소드 안으로 옮겨라.**<br>
 <br>
 <br>
 ```javaObject lastReading () {    return readings.lastElement ();}
@@ -865,7 +865,7 @@ double getExpenseLimit() {
 ```<br>
 <br>
 <br>
-### Replace Error Code with Exception메소드가 에러를 나타내는 특별한 코드를 가지고 있다면**대신 예외를 던져라.**
+### Replace Error Code with Exception메소드가 에러를 나타내는 특별한 코드를 가지고 있다면<br>**대신 예외를 던져라.**
 <br>
 <br>
 <br>
@@ -875,7 +875,7 @@ double getExpenseLimit() {
 <br>
 <br>
 <br>
-### Replace Exception with Test호출부에서 먼저 검사할 수 있는 조건에 대해 예외를 던지고 있다면**호출부가 먼저 검사하도록 바꿔라.**<br>
+### Replace Exception with Test호출부에서 먼저 검사할 수 있는 조건에 대해 예외를 던지고 있다면<br>**호출부가 먼저 검사하도록 바꿔라.**<br>
 <br>
 <br>
 ```javadouble getValueForPeriod(int periodNumber) {	try {		return _values[periodNumber];	} catch(ArrayIndexOutOfBoundsException e) {		return 0;	}}
