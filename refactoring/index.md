@@ -758,7 +758,8 @@ double getExpenseLimit() {
 <br>
 <br>
 <br>
-<center>![](rename_method.jpg)</center>***<br>
+<center>![](rename_method.jpg)</center>
+***<br>
 <br>
 <br>
 
@@ -766,24 +767,28 @@ double getExpenseLimit() {
 (A method needs more information from its caller.)<br>**이 정보를 넘길 수 있는 객체에 대한 파라미터를 추가하라.**<br>
 <br>
 <br><center>![](add_parameter.jpg)</center>
+
 ***<br>
 <br>
 <br>
 ### Remove Parameter파라미터가 메소드 몸체에서 더 이상 사용되지 않는다면<br>**그 파라미터를 제거하라.**<br>
 <br>
 <br><center>![](remove_parameter.jpg)</center>
+
 ***<br>
 <br>
 <br>
 ### Separate Query from Modifier값을 리턴할 뿐만 아니라 객체의 상태도 변경하는 메소드를 가지고 있는 경우<br>**두개의 메소드를 만들어서 하나는 값을 리턴하는 역할을 하고 하나는 객체의 상태를 변경하는 역할을 하게 하라.**<br>
 <br>
 <br><center>![](separate_query_from_modifier.jpg)</center>
+
 ***<br>
 <br>
 <br>
 ### Parameterize Method몇몇 메소드가 메소드 몸체에 다른 값을 포함하고 있는 것을 제외하고는 비슷한 일을 하고 있다면<br>**다른 값을 파라미터로 넘겨 받는 하나의 메소드를 만들어라.**<br>
 <br>
 <br><center>![](parameterize_method.jpg)</center>
+
 ***<br>
 <br>
 <br>
@@ -819,6 +824,7 @@ double getExpenseLimit() {
 <br>
 <br>
 <center>![](introduce_parameter_object.jpg)</center>
+
 ***<br>
 <br>
 <br>
@@ -826,6 +832,7 @@ double getExpenseLimit() {
 <br>
 <br>
 <center>![](remove_setting_method.jpg)</center>
+
 ***<br>
 <br>
 <br>
