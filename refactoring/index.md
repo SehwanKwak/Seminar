@@ -1,4 +1,4 @@
-# 리팩토링 (8~10장)
+# 리팩토링 (8~11장)
 ## 데이터 구성 (Organizing Data)
 
 * **Self Encapsulate Field** : 접근자를 사용해야 할 때
@@ -892,6 +892,110 @@ double getExpenseLimit() {
 <br>
 <br>
 <br>
+
+## 일반화 다루기(Dealing With Generalization)* Pull Up Field <-> Push Down Field
+* Pull Up Method <-> Push Down Method
+* Pull Up Constructor Body
+* Extract Subclass
+* Extract Superclass
+* Extract Interface
+* Form Template Method
+* Collapse Hierachy
+* Replace Inheritance with Delegation <-> Replace Delegation with Inheritance<br>
+<br>
+<br>
+### Pull Up Field두 서브클래스가 동일한 필드를 가지고 있다면,<br>**그 필드를 수퍼클래스로 옮겨라.**<br>
+<br>
+<br>
+<center>![](pull_up_field.jpg)</center>
+
+***<br>
+<br>
+<br> ### Pull Up Method동일한 일을 하는 메소드를 여러 서브클래스에서 가지고 있다면,<br>**이 메소드를 수퍼클래스로 옮겨라.**<br>
+<br>
+<br>
+<center>![](pull_up_method.jpg)</center>
+
+***<br>
+<br>
+<br> ### Pull Up Constructor Body서브클래스들이 대부분 동일한 몸체를 가진 생성자를 가지고 있다면,<br>**수퍼클래스에 생성자를 만들고 서브클래스 메소드에서 이것을 호출하라.**```javaclass Manager extends Employee...    public Manager (String name, String id, int grade) {            _name = name;            _id = id;            _grade = grade;    }
+```
+<center>![](arrow_down.jpg)</center>
+
+```java	public Manager (String name, String id, int grade) {            super (name, id);           _grade = grade; 	} ```
+
+<br>
+<br>
+<br>
+### Push Down Method수퍼클래스에 있는 동작이 서브클래스 중 일부에만 관련되어 있다면,<br>**그 동작을 관련된 서브클래스로 옮겨라.**<br>
+<br>
+<br>
+<center>![](push_down_method.jpg)</center>
+
+***<br>
+<br>
+<br> ### Push Down Field어떤 필드가 일부 서브클래스에 의해서만 사용되고 있다면,<br>**그 필드를 관련된 서브클래스로 옮겨라.**<br>
+<br>
+<br>
+<center>![](push_down_field.jpg)</center>
+
+***<br>
+<br>
+<br> ### Extract Subclass어떤 클래스가 일부 인스턴스에 의해서만 사용되는 기능을 가지고 있다면,<br>**기능의 부분집합을 담당하는 서브클래스를 만들어라.**<br>
+<br>
+<br>
+<center>![](extract_subclass.jpg)</center>
+
+***<br>
+<br>
+<br> ### Extract Superclass비슷한 메소드와 필드를 가진 두 개의 클래스가 있다면,<br>**수퍼클래스를 만들어서 공통된 메소드와 필드를 수퍼클래스로 옮겨라.**<br>
+<br>
+<br>
+<center>![](extract_superclass.jpg)</center>
+
+***<br>
+<br>
+<br> ### Extract Interface여러 클라이언트가 한 클래스 인터페이스의 동일한 부분 집합을 사용하고 있거나 두 클래스가 공통된 인터페이스를 가지는 부분이 있다면,<br>**그 부분 집합을 인터페이스로 뽑아내라.**<br>
+<br>
+<br>
+<center>![](extract_interface.jpg)</center>
+
+***<br>
+<br>
+<br> ### Collapse Hierarchy수퍼 클래스와 서브클래스가 별로 다르지 않다면,<br>**그것들을 하나로 합쳐라.**<br>
+<br>
+<br>
+<center>![](collapse_hierarchy.jpg)</center>
+
+***<br>
+<br>
+<br> ### Form Template Method각각의 서브클래스에, 동일한 순서로 비슷한 단계를 행하지만 단계가 완전히 같지는 않는 두 메소드가 있다면,<br>**그 단계를 동일한 시그너처를 가진 메소드로 만들어라. 이렇게 하면 원래의 두 메소드는 서로 같이지므로, 수퍼클래스로 올릴 수 있다.**<br>
+<br>
+<br>
+<center>![](form_template_method.jpg)</center>
+
+***<br>
+<br>
+<br> ### Replace Inheritance with Delegation서브클래스가 수퍼클래스 인터페이스의 일부분만 사용하거나 또는 데이터를 상속 받고 싶지 않은 경우,<br>**수퍼클래스를 위한 필드를 만들고 메소드들이 수퍼클래스에 위임하도록 변경한 후 상속 관계를 제거한다.**<br>
+<br>
+<br>
+<center>![](replace_inheritance_with_delegation.jpg)</center>
+
+***<br>
+<br>
+<br> ### Replace Delegation with Inheritance위임을 사용하고 있는데 전체 인터페이스에 대해 간단한 위임을 자주 작성하고 있다면,<br>**위임하는 클래스를 대리객체의 서브클래스로 만들어라.**
+**(Make the delegating class a subclass of the delegate.)**<br>
+<br>
+<br>
+<center>![](replace_delegation_with_inheritance.jpg)</center>
+
+***<br>
+<br>
+<br><br>
+<br>
+<br><br>
+<br>
+<br><br> 
 
 ## References
 * 리팩토링 - 마틴 파울러, 대청
